@@ -5,7 +5,7 @@ const request = require('request');
 const movieId = process.argv[2];
 const filmsApiUrl = 'https://swapi-api.hbtn.io/api/films';
 
-function fetchJSON (url) {
+function fetchJSON(url) {
   return new Promise(function (resolve, reject) {
     request(url, function (error, response, body) {
       if (!error && response.statusCode === 200) {
@@ -17,7 +17,7 @@ function fetchJSON (url) {
   });
 }
 
-async function printStarWarsCharacters (movieId) {
+async function printStarWarsCharacters(movieId) {
   try {
     const filmData = await fetchJSON(`${filmsApiUrl}/${movieId}`);
     for (const characterUrl of filmData.characters) {
